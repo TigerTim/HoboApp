@@ -1,0 +1,115 @@
+<html>
+<head>
+  <script src="static/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/styles.css">
+</head>
+  <body>
+    <div class="gauge-cont" data-percentage="40">
+      <div class="gauge">
+        <div class="inner"></div>
+        <div class="spinner"></div>
+      </div>
+      <div class="pointer">
+        <svg><polygon points="0,0 5,40 -5,40" style="fill:#eee;" /></svg>
+      </div>
+
+    </div>
+
+    <div class="gauge-cont" data-percentage="80">
+      <div class="gauge">
+        <div class="inner"></div>
+        <div class="spinner alt"></div>
+      </div>
+      <div class="pointer">
+        <svg><polygon points="0,0 5,40 -5,40" style="fill:#eee;" /></svg>
+      </div>
+
+    </div>
+
+    <div>
+      <a href="#" class="reset">Reset</a>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $(document).ready(runAllGauges());
+
+    setInterval(function(){
+      var gauges = $('.gauge-cont').get().reverse();
+      $.each(gauges, function(i, v){
+        var gauge = this;
+        $(gauge).data('percentage', Math.floor((Math.random() * 100) + 1))
+        setGauge(gauge)
+      })
+    }, 1000)
+
+    $('.reset').on('click', function(e){
+      e.preventDefault();
+      $(this).toggleClass('active');
+      if ( $(this).hasClass('active') ){
+        $(this).text('Run');
+        resetAllGauges();
+      } else {
+        $(this).text('Reset');
+        runAllGauges();
+      }
+    });
+
+
+    function runAllGauges()
+    {
+      var gauges = $('.gauge-cont');
+      $.each(gauges, function(i, v){
+        var self = this;
+        setTimeout(function(){
+            setGauge(self);
+        },i * 700);
+      });
+    }
+
+    function resetAllGauges()
+    {
+      var gauges = $('.gauge-cont').get().reverse();
+      $.each(gauges, function(i, v){
+        var self = this;
+        setTimeout(function(){
+            resetGauge(self);
+        },i * 700);
+      });
+    }
+
+    function resetGauge(gauge)
+    {
+      var spinner = $(gauge).find('.spinner');
+      var pointer = $(gauge).find('.pointer');
+      $(spinner).attr({
+        style: 'transform: rotate(0deg)'
+      });
+      $(pointer).attr({
+        style: 'transform: rotate(-90deg)'
+      });
+    }
+
+    function setGauge(gauge)
+    {
+      var percentage = $(gauge).data('percentage') / 100;
+      var degrees = 180 * percentage;
+      var pointerDegrees = degrees - 90;
+      var spinner = $(gauge).find('.spinner');
+      var pointer = $(gauge).find('.pointer');
+
+      if(percentage > 0.8) {
+        $(spinner).addClass('red');
+      } else {
+        $(spinner).removeClass('red');
+      }
+
+      $(spinner).attr({
+        style: 'transform: rotate(' + degrees + 'deg)'
+      });
+      $(pointer).attr({
+        style: 'transform: rotate(' + pointerDegrees + 'deg)'
+      });
+    }
+  </script>
+</html>
+
