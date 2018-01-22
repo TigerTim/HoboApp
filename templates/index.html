@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="static/styles.css">
 </head>
   <body>
-    <div class="gauge-cont" data-percentage="40">
+    <div class="gauge-container" data-percentage="40">
       <div class="gauge">
         <div class="inner"></div>
         <div class="spinner"></div>
@@ -12,10 +12,9 @@
       <div class="pointer">
         <svg><polygon points="0,0 5,40 -5,40" style="fill:#eee;" /></svg>
       </div>
-
     </div>
 
-    <div class="gauge-cont" data-percentage="80">
+    <div class="gauge-container" data-percentage="80">
       <div class="gauge">
         <div class="inner"></div>
         <div class="spinner alt"></div>
@@ -23,7 +22,6 @@
       <div class="pointer">
         <svg><polygon points="0,0 5,40 -5,40" style="fill:#eee;" /></svg>
       </div>
-
     </div>
 
     <div>
@@ -34,7 +32,7 @@
     $(document).ready(runAllGauges());
 
     setInterval(function(){
-      var gauges = $('.gauge-cont').get().reverse();
+      var gauges = $('.gauge-container').get().reverse();
       $.each(gauges, function(i, v){
         var gauge = this;
         $(gauge).data('percentage', Math.floor((Math.random() * 100) + 1))
@@ -57,7 +55,7 @@
 
     function runAllGauges()
     {
-      var gauges = $('.gauge-cont');
+      var gauges = $('.gauge-container');
       $.each(gauges, function(i, v){
         var self = this;
         setTimeout(function(){
@@ -68,7 +66,7 @@
 
     function resetAllGauges()
     {
-      var gauges = $('.gauge-cont').get().reverse();
+      var gauges = $('.gauge-container').get().reverse();
       $.each(gauges, function(i, v){
         var self = this;
         setTimeout(function(){

@@ -7,6 +7,9 @@ body {
   background-color: #2a2a2a;
   padding-top: 40px;
   text-align: center;
+  background-image: url("test_blur.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .gauge {
@@ -20,17 +23,19 @@ body {
   width: 200px;
   height: 100px;
   display: block;
-  background-color: #444444;
+  xbackground-color: #444444;
+  border-color: #444444;
   border-radius: 200px 200px 0 0;
   z-index: 1;
 }
+
 .inner:after {
   content: '';
   width: 120px;
   height: 60px;
   top: 40px;
   left: 40px;
-  background-color: #2a2a2a;
+  background-color: #444444;
   border-radius: 200px 200px 0 0;
   position: absolute;
   z-index: 3;
@@ -63,14 +68,14 @@ body {
   background-color: #f00;
 }
 
-.gauge-cont {
+.gauge-container {
   display: inline-block;
   position: relative;
   width: 200px;
   height: 100px;
   margin-left: 30px;
 }
-.gauge-cont:first-child {
+.gauge-container:first-child {
   margin: 0;
 }
 
