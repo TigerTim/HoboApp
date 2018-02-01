@@ -1,6 +1,8 @@
 <html>
 <head>
   <script src="static/jquery-3.2.1.min.js"></script>
+  <script src="static/gauge.js"></script>
+  <script src="static/d3.min.js"></script>
   <link rel="stylesheet" type="text/css" href="static/styles.css">
 </head>
   <body>
@@ -24,21 +26,27 @@
       </div>
     </div>
 
+    <div id='temp'>
+    </div>
+
     <div>
       <a href="#" class="reset">Reset</a>
     </div>
   </body>
   <script type="text/javascript">
-    $(document).ready(runAllGauges());
+    $(document).ready(function() {
+      //runAllGauges()
+      create_gauge()
+    });
 
-    setInterval(function(){
-      var gauges = $('.gauge-container').get().reverse();
-      $.each(gauges, function(i, v){
-        var gauge = this;
-        $(gauge).data('percentage', Math.floor((Math.random() * 100) + 1))
-        setGauge(gauge)
-      })
-    }, 1000)
+    // setInterval(function(){
+    //   var gauges = $('.gauge-container').get().reverse();
+    //   $.each(gauges, function(i, v){
+    //     var gauge = this;
+    //     $(gauge).data('percentage', Math.floor((Math.random() * 100) + 1))
+    //     setGauge(gauge)
+    //   })
+    // }, 1000)
 
     $('.reset').on('click', function(e){
       e.preventDefault();

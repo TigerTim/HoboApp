@@ -127,3 +127,29 @@ body {
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
 }
+
+
+
+
+
+
+svg {
+  background: linear-gradient(0deg, #666 , #999)
+}
+
+rect.border {
+  fill: url(#Gradient1);
+  stroke-width: 2;
+  stroke: #aaa;
+
+}
+
+.stop-right {
+                stop-color: #bbb;  /* Teal */
+            }
+
+.stop-left {
+                stop-color: #999;  /* Teal */
+            }
+
+
