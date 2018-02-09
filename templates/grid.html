@@ -1,6 +1,9 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="static/grid.css">
+    <script src="static/jquery-3.2.1.min.js"></script>
+    <script src="static/d3.min.js"></script>
+    <script src="static/graph.js"></script>
   </head>
   <body>
     <div id='main'>
@@ -10,6 +13,15 @@
       </div>
       <div class='item c'>
       </div>
+      <div class='graph'>
+      </div>
+      <div class='button'>
+      </div>
     </div>
   </body>
+  <script type="text/javascript">
+    $('document').ready(function() {
+      create_graph([ {"a": 1,"b": 20},{"a": 10,"b": 10},{"a": 25,"b": 15} ])
+    });
+  </script>
 </html>

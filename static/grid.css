@@ -9,8 +9,8 @@ div#main {
   position: absolute;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 
   top: 0px;
   left: 0px;
@@ -41,4 +41,34 @@ div.item {
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 4;
+}
+
+.graph {
+  grid-column-start: 1;
+  grid-row-start: -2;
+  margin: 2px;
+  border: 1px solid yellow;
+}
+
+.white line{
+  stroke: #eee;
+}
+
+.white path{
+  stroke: #eee;
+}
+
+.white text{
+  fill: #eee;
+}
+
+.button {
+  grid-column-start: -2;
+  grid-row-start: -2;
+  background: linear-gradient(0deg, #eee, #aaa);
+  margin: 5px;
+}
+
+.button:hover {
+  background: linear-gradient(0deg, #fff, #ddd);
 }
